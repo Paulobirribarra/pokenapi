@@ -1,0 +1,35 @@
+<%- include("partials/_header") %>
+
+<h1>Pokédex</h1>
+
+<form action="/pokemon" method="get">
+    <input type="text" name="name" placeholder="Nombre o ID de Pokémon" required />
+    <button type="submit">Consultar</button>
+</form>
+
+<!-- Contenedor de Pokémon -->
+<div class="pokemon-container">
+    <% if (pokemons && pokemons.length > 0) { %>
+        <% pokemons.forEach(pokemon => { %>
+            <%- include("partials/_pokemonCard", { pokemon }) %>
+        <% }) %>
+    <% } else { %>
+        <p>No hay Pokémon para mostrar.</p>
+    <% } %>
+</div>
+
+<!-- Mostrar detalles del Pokémon -->
+<% if (pokemon) { %>
+    <div class="pokemon-details">
+        <h2>#<%= pokemon.id %> - <%= pokemon.name.toUpperCase() %></h2>
+        <img src="<%= pokemon.sprite %>" alt="<%= pokemon.name %>" />
+        <p>Tipos: <%= pokemon.types.join(', ') %></p>
+    </div>
+<% } %>
+
+<!-- Mostrar mensaje de error si existe -->
+<% if (error) { %>
+    <p style="color: red"><%= error %></p>
+<% } %>
+
+<%- include("partials/_footer") %>
