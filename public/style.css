@@ -15,13 +15,13 @@ body {
 }
 
 .pokemon-card {
-    border: 2px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
-    width: 200px;
-    background-color: white;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    background: #f9f9f9;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
 }
 
 .pokemon-details {
@@ -31,4 +31,50 @@ body {
     border-radius: 10px;
     display: inline-block;
     background-color: white;
+}
+.pokemon-img {
+    width: 120px;
+    height: 120px;
+}
+.evolution-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.evolution {
+    text-align: center;
+}
+
+.evolution-img {
+    width: 80px;
+    height: 80px;
+}
+.pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pagination-button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    background-color: #ffcb05;
+    color: #3b4cca;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.pagination-button:hover {
+    background-color: #f3b700;
+}
+
+.pagination span {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 10px;
 }

@@ -1,5 +1,21 @@
 <div class="pokemon-card">
-    <h2>#<%= pokemon.id %> - <%= pokemon.name.toUpperCase() %></h2>
-    <img src="<%= pokemon.sprite %>" alt="<%= pokemon.name %>">
+    <h3>#<%= pokemon.id %> - <%= pokemon.name.toUpperCase() %></h3>
+    <img src="<%= pokemon.sprite %>" alt="<%= pokemon.name %>" class="pokemon-img" />
     <p>Tipos: <%= pokemon.types.join(', ') %></p>
+
+    <% if (pokemon.evolutions.length > 1) { %>
+        <p>Evoluciones:</p>
+        <div class="evolution-container">
+            <% pokemon.evolutions.forEach((evolution, index) => { %>
+                <% if (index > 0) { %> <!-- No mostramos la fase base dos veces -->
+                    <div class="evolution">
+                        <img src="<%= evolution.sprite %>" alt="<%= evolution.name %>" class="evolution-img" />
+                        <p><%= evolution.name %></p>
+                    </div>
+                <% } %>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <p>No evoluciona.</p>
+    <% } %>
 </div>

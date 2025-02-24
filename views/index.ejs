@@ -7,6 +7,19 @@
     <button type="submit">Consultar</button>
 </form>
 
+<div class="pagination">
+    <% if (currentPage > 1) { %>
+        <a href="/?page=<%= currentPage - 1 %>" class="pagination-button">⬅ Anterior</a>
+    <% } %>
+
+    <span>Página <%= currentPage %> de <%= totalPages %></span>
+
+    <% if (currentPage < totalPages) { %>
+        <a href="/?page=<%= currentPage + 1 %>" class="pagination-button">Siguiente ➡</a>
+    <% } %>
+</div>
+
+
 <!-- Contenedor de Pokémon -->
 <div class="pokemon-container">
     <% if (pokemons && pokemons.length > 0) { %>
@@ -22,7 +35,7 @@
 <% if (pokemon) { %>
     <div class="pokemon-details">
         <h2>#<%= pokemon.id %> - <%= pokemon.name.toUpperCase() %></h2>
-        <img src="<%= pokemon.sprite %>" alt="<%= pokemon.name %>" />
+        <img class="pokemon-img" src="<%= pokemon.sprite %>" alt="<%= pokemon.name %>" />
         <p>Tipos: <%= pokemon.types.join(', ') %></p>
     </div>
 <% } %>
@@ -33,3 +46,15 @@
 <% } %>
 
 <%- include("partials/_footer") %>
+
+<div class="pagination">
+    <% if (currentPage > 1) { %>
+        <a href="/?page=<%= currentPage - 1 %>" class="pagination-button">⬅ Anterior</a>
+    <% } %>
+
+    <span>Página <%= currentPage %> de <%= totalPages %></span>
+
+    <% if (currentPage < totalPages) { %>
+        <a href="/?page=<%= currentPage + 1 %>" class="pagination-button">Siguiente ➡</a>
+    <% } %>
+</div>
